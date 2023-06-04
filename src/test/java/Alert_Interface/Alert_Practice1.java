@@ -59,13 +59,6 @@ public class Alert_Practice1 {
            Thread.sleep(3000);                              // pay attention to the misspelling
 
 
-
-
-
-
-
-
-
        }
 
 
