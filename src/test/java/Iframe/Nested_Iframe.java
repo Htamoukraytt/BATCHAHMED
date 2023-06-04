@@ -54,8 +54,8 @@ public class Nested_Iframe {
           WebElement right=driver.findElement(By.xpath("//body[contains(text(),'RIGHT')]"));
           System.out.println(BrowsersUtils.getText(right));
 
-           //driver.switchTo().parentFrame();
-           //driver.switchTo().parentFrame(); // getting out of appartment
+           //driver.switchTo().parentFrame();  // getting out of room
+           //driver.switchTo().parentFrame(); // getting out of apartment
            driver.switchTo().defaultContent(); //*******  it goes back to the main html it dosent matter where you at
           // very good method interview question
 
