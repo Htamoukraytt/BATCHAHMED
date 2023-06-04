@@ -114,21 +114,17 @@ public class Alert_Intro {
         WebElement jsPrompt=driver.findElement(By.xpath("//button[.='Click for JS Prompt']"));
         jsPrompt.click();
         Thread.sleep(1000);
-
+        Thread.sleep(2000);
         Alert alert=driver.switchTo().alert();
         alert.sendKeys("home work is important");
         alert.accept();
 
+        Thread.sleep(2000);
 
         WebElement message=driver.findElement(By.cssSelector("#result"));
         String act_message=BrowsersUtils.getText(message);
         String expected_message="You entered: home work is important";
         Assert.assertEquals(act_message,expected_message);
-
-
-
-
-
 
 
     }
