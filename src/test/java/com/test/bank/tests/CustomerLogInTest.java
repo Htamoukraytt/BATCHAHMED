@@ -2,28 +2,20 @@ package com.test.bank.tests;
 
 import com.test.bank.pages.BankLoginPage;
 import com.test.bank.pages.BankMangerPage;
-import com.test.bank.pages.CustomerPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.test.bank.pages.CustomerLogInPage;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
-public class CustomerTest {
-
-
+public class CustomerLogInTest extends BankTestBase{
 
 
 
     @Test
-    public void validatingCustomerFunction() throws InterruptedException {
-
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
+    public void validatingCustomerLogInFunction() throws InterruptedException {
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver=new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
 
         BankLoginPage loginPage=new BankLoginPage(driver);
         loginPage.clickBankMangerLogIn();
@@ -35,14 +27,16 @@ public class CustomerTest {
         // customer Function
         mangerPage.customersFunctionality("hicham","tam","60056");
 
-        //---->
-        BankLoginPage logInpage=new BankLoginPage(driver);
-        logInpage.clickHomePage(driver);
-        CustomerPage customer=new CustomerPage();
-        customer.customerLoginFunctionality(driver,"hicham tam","hicham tam");
-
-
-
+        //----> Task start here
+        loginPage.clickHomeButton(driver);
+        CustomerLogInPage customerLogInPage=new CustomerLogInPage(driver);
+        customerLogInPage.LoginFunctionality(driver,"hicham tam","Welcome hicham tam !!");
+        //
+        customerLogInPage.depositFunctionality("500","Deposit Successful");
+        //
+         customerLogInPage.withdrawalFunctionality("200","Transaction successful");
+         //
+        // customerLogInPage.transactionsFunctionality();
     }
 
 

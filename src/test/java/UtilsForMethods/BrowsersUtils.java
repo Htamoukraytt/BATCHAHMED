@@ -61,7 +61,7 @@ public class BrowsersUtils {
     //SCROLL INTO VIEW JS
     public static void scrollWithJS(WebDriver driver, WebElement element){
         JavascriptExecutor js=(JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true)",element);
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
     }
 
 

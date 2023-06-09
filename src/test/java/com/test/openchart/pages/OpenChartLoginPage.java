@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
-public class LoginPage {
+public class OpenChartLoginPage {
 
-    public LoginPage(WebDriver driver) {
+    public OpenChartLoginPage(WebDriver driver) {
     PageFactory.initElements(driver,this);
     }
 
@@ -20,10 +19,10 @@ public class LoginPage {
     WebElement loginPageHeader;
 
 
-    @FindBy(xpath = "#input-username")
+    @FindBy(css = "#input-username")
     WebElement userName;
 
-    @FindBy(xpath = "input-password")
+    @FindBy(css = "#input-password")
     WebElement passWord;
 
 
@@ -32,21 +31,23 @@ public class LoginPage {
     WebElement login;
 
 
+    @FindBy(css = "#alert")
+    WebElement alert;
 
 
 
-    public void logInFunctionality(WebDriver driver ,String expectedTitle){
+    public void LogInFunctionality(String username1, String passWord1) throws InterruptedException {
 
-       userName.sendKeys("demo");
-       passWord.sendKeys("demo");
+       userName.sendKeys(username1);
+       passWord.sendKeys(passWord1);
        login.submit();
-       Assert.assertEquals(driver.getTitle(),expectedTitle);  // Dashboard
-
-
-
-
+       Thread.sleep(2000);
     }
 
+
+    public String errorMessage(){
+    return BrowsersUtils.getText(alert);
+    }
 
 
 
