@@ -1,45 +1,42 @@
-package com.test.openchart.tests;
+package com.test.blaze.tests;
 
-import UtilsForMethods.ConfigReader;
+import UtilsForMethods.BrowsersUtils;
 import UtilsForMethods.DriverHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-public class OpenChartTestBase {
+public class blazeTestBase {
 
 
-    public WebDriver driver; // making it instance (global so can be reached out )
 
+   public  WebDriver driver;
 
     @BeforeMethod
-    public void setup(){  // this to avoid repeating this lines all the time
+    public void setup (){
 //        WebDriverManager.chromedriver().setup();
 //        driver=new ChromeDriver();
 //        driver.manage().window().maximize();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        Actions action=new Actions(driver);
-
-        driver=DriverHelper.getDriver();
-        driver.navigate().to(ConfigReader.readProperty("QA_URL")); // FROM FILE
+        driver= DriverHelper.getDriver();
+        driver.get("https://www.demoblaze.com/#");
     }
-
 
 
 
     @AfterMethod
-    public void tearDown(){
-         driver.quit();
+    public void TearDown(ITestResult iTestResult){
+      if(!iTestResult.isSuccess()){
+          BrowsersUtils.getScreenShot(driver,"blazePictures");
+      }
+
+      driver.quit();
     }
-
-
-
-
 
 
 }

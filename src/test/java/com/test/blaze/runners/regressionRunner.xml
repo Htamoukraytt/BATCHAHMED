@@ -1,0 +1,41 @@
+                             <!--  THIS IS HOW WE CREATE REGRESSION SUITE AND SMOKE SUITE     -->
+
+
+<!-- step 1  THIS FILE IS TELLING SYSTEM ==> THIS IS GOING TO BE SUITE ( regression OR smoke ) ==> we got it form testNG documentation -->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<!-- step 2    -->
+
+<suite name="Regression Suite">      <!-- our regression name inside the suite ===> here we decide if its regression or smoke -->
+
+
+    
+   <test name="blaze Tests " >    <!-- this one for the specific test  EACH TEST HAVE A REGRESSION ITS REGRESSION -->
+       
+       <classes>                 <!-- here under classes we do our test classes we want to run in our regression but each class must have location from com and up -->
+           <class name="com.test.blaze.tests.blazeMacBookProTest"></class>
+           <class name="com.test.blaze.tests.blazeCartTest"></class>
+           <class name="com.test.blaze.tests.blazePlaceOrderTest"></class>
+       </classes>
+       
+   </test>
+    
+    <!--     ==============  another regression for bank project  =======    -->
+    
+    
+    <test name="Bank Tests">   <!-- Bank project Regression Test -->
+
+        <classes>
+            <class name="com.test.bank.tests.BankMangerPageTest"></class>
+            <class name="com.test.bank.tests.BankLoginTest"></class>
+            <class name="com.test.bank.tests.CustomerLogInTest"></class>
+        </classes>
+        
+    </test>
+
+</suite>
+
+
+    <!-- next step here is to right-Click on the file  regressionRunner.xml and click ===> and click Generate  XSD    -->
+
+    <!-- NOW YOU CAN RUN FROM THE FILE TO  RUN OUR REGRESSION  -->

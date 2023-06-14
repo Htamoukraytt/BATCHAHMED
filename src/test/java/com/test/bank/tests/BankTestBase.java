@@ -1,5 +1,6 @@
 package com.test.bank.tests;
 
+import UtilsForMethods.DriverHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,10 +18,11 @@ public class BankTestBase {
 
     @BeforeMethod
     public void setup(){  // this to avoid repeating this lines all the time
-        WebDriverManager.chromedriver().setup();
-         driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        WebDriverManager.chromedriver().setup();
+//         driver=new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver= DriverHelper.getDriver();   // after centralize from driverHelper
         driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
     }
 
